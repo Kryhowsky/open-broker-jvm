@@ -35,7 +35,7 @@ internal fun String.requireNotEmpty(propertyName: String) {
 
 internal fun String.requireMatchRegex(regex: Regex, propertyName: String) {
     require(this.matches(regex)) {
-        "Invalid $propertyName: $this, does not match regex"
+        "{$propertyName: \"Invalid $propertyName: $this, does not match regex\"}"
     }
 }
 

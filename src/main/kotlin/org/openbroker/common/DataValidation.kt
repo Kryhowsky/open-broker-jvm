@@ -49,7 +49,7 @@ internal fun List<String>.requireAllMatchRegex(regex: Regex, propertyName: Strin
         }
     }
     require(allValid) {
-        "{\"message\": \"Invalid element in $propertyName, does not match regex\", ${notValidElements.joinToString { "\"$propertyName\": \"$it\"" }}"
+        "{\"message\": \"Invalid element in $propertyName, does not match regex\", ${notValidElements.joinToString { "\"$propertyName\": \"$it\"" }}}"
     }
 }
 

@@ -17,7 +17,7 @@ internal fun Int?.requireInRange(min: Int, max: Int, propertyName: String) {
 
 internal fun Int.requireLessThanOrEqual(compareTo: Int, compareToPropertyName: String, propertyName: String) {
     require(this <= compareTo) {
-        "{\"message\": \"Value for $propertyName cannot be greater than value for $compareToPropertyName\", \"$propertyName\": \"$this\", \"$compareToPropertyName\": \"$compareTo\"}"
+        "{\"message\": \"Value for $propertyName cannot be greater than value for $compareToPropertyName. $propertyName: $this, $compareToPropertyName: $compareTo\"}"
     }
 }
 
@@ -35,7 +35,7 @@ internal fun String.requireNotEmpty(propertyName: String) {
 
 internal fun String.requireMatchRegex(regex: Regex, propertyName: String) {
     require(this.matches(regex)) {
-        "{\"message\": \"Invalid $propertyName value, does not match regex\", \"$propertyName\": \"$this\"}"
+        "{\"message\": \"Invalid $propertyName value, does not match regex. $propertyName: $this\"}"
     }
 }
 
@@ -49,7 +49,7 @@ internal fun List<String>.requireAllMatchRegex(regex: Regex, propertyName: Strin
         }
     }
     require(allValid) {
-        "{\"message\": \"Invalid element in $propertyName, does not match regex\", ${notValidElements.joinToString { "\"$propertyName\": \"$it\"" }}}"
+        "{\"message\": \"Invalid element in $propertyName, does not match regex. ${notValidElements.joinToString { "$propertyName: $it" }}\"}"
     }
 }
 
